@@ -1,0 +1,8 @@
+{
+    "name": "Dithering",
+    "image": "rust:latest",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind"
+    ],
+    "workspaceFolder": "/workspace"
+}
