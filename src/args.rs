@@ -20,7 +20,7 @@ pub struct DitherArgs {
 #[argh(subcommand)]
 pub enum Mode {
     WhitePixelAlternation(OptsWhitePixelAlternation),
-    Umbralization(OptsUmbralization),
+    Thresholding(OptsThresholding),
 }
 
 #[derive(Debug, Clone, PartialEq, FromArgs)]
@@ -31,7 +31,7 @@ pub struct OptsWhitePixelAlternation {}
 #[derive(Debug, Clone, PartialEq, FromArgs)]
 #[argh(subcommand, name = "seuillage")]
 /// Rendu de l’image en noir et blanc.
-pub struct OptsUmbralization {
+pub struct OptsThresholding {
     /// couleur claire
     #[argh(option, long = "couleur-claire")]
     pub light: Option<String>,

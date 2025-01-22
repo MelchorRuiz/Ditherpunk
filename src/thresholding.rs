@@ -2,7 +2,7 @@ use image::io::Reader as ImageReader;
 use image::Rgb;
 use css_color_parser::Color as CssColor;
 
-pub fn apply_umbralization(input: String, output: Option<String>, light: Option<String>, dark: Option<String>) -> Result<(), Box<dyn std::error::Error>> {
+pub fn apply_thresholding(input: String, output: Option<String>, light: Option<String>, dark: Option<String>) -> Result<(), Box<dyn std::error::Error>> {
     let img = ImageReader::open(input)?.decode()?;
     let mut img_rgb = img.to_rgb8();
 
