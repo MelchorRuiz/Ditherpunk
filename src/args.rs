@@ -22,6 +22,7 @@ pub enum Mode {
     WhitePixelAlternation(OptsWhitePixelAlternation),
     Thresholding(OptsThresholding),
     Pallet(OptsPallet),
+    Dithering(OptsDithering),
 }
 
 #[derive(Debug, Clone, PartialEq, FromArgs)]
@@ -49,3 +50,8 @@ pub struct OptsPallet {
     #[argh(option, long = "nombre-de-couleurs", short = 'n')]
     pub n: usize,
 }
+
+#[derive(Debug, Clone, PartialEq, FromArgs)]
+#[argh(subcommand, name = "tramage")]
+/// Rendu de l’image avec un tre tramage aléatoire
+pub struct OptsDithering {}
