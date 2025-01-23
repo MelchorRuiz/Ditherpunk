@@ -35,4 +35,4 @@ Le programme renvoie une erreur si le nombre de couleurs à utiliser est inféri
 
 ## Question 17
 **comment l'erreur commise dans chaque pixel est représentée et distribuée.**<br>
-asd
+Pour un pixel RGB ( c_original = (r, g, b) ), l'erreur est ( e(x, y) = (r - r_q, g - g_q, b - b_q) ), où ( c_quantifié ) est la couleur quantifiée. Cette erreur est diffusée aux pixels voisins selon une matrice (ex. Floyd-Steinberg), ajustant leurs valeurs avant quantification pour un rendu plus fidèle.

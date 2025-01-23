@@ -4,6 +4,7 @@ mod thresholding;
 mod pallet;
 mod dithering;
 mod ordered_dithering;
+mod error_diffusion;
 
 use args::{DitherArgs, Mode};
 use white_pixel_alternation::apply_white_pixel_alternation;
@@ -11,6 +12,7 @@ use thresholding::apply_thresholding;
 use pallet::apply_pallet;
 use dithering::apply_dithering;
 use ordered_dithering::apply_ordered_dithering;
+use error_diffusion::apply_error_diffusion;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: DitherArgs = argh::from_env();
@@ -30,6 +32,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         },
         Mode::OrderedDithering(opts) => {
             apply_ordered_dithering(args.input, args.output, opts.n)?;
+        },
+        Mode::ErrorDiffusion(opts) => {
+            apply_error_diffusion(args.input, args.output, opts.algorithm)?;
         },
     }
 

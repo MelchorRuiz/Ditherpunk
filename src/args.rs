@@ -24,6 +24,7 @@ pub enum Mode {
     Pallet(OptsPallet),
     Dithering(OptsDithering),
     OrderedDithering(OptsOrderedDithering),
+    ErrorDiffusion(OptsErrorDiffusion),
 }
 
 #[derive(Debug, Clone, PartialEq, FromArgs)]
@@ -64,4 +65,13 @@ pub struct OptsOrderedDithering {
     /// l’ordre de la matrice de Bayer
     #[argh(option, long = "ordre", short = 'n')]
     pub n: u32,
+}
+
+#[derive(Debug, Clone, PartialEq, FromArgs)]
+#[argh(subcommand, name = "diffusion-erreur")]
+/// Rendu de l’image avec une diffusion d’erreur
+pub struct OptsErrorDiffusion {
+    /// l’algorithme de diffusion d’erreur à utiliser, dans la liste [FLOYD_STEINBERG, JARVIS_JUDICE_NINKE, ATKINSON]
+    #[argh(option, long = "algorithme", short = 'a')]
+    pub algorithm: String,
 }
