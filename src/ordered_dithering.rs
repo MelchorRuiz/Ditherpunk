@@ -31,10 +31,9 @@ pub fn apply_ordered_dithering(input: String, output: Option<String>, n: u32) ->
 }
 
 fn generate_bayer_matrix(n: u32) -> Vec<Vec<f32>> {
-    let size = 2_usize.pow(n); // Tamaño de la matriz (2^n)
-    let mut matrix = vec![vec![0_u32; size]; size]; // Inicializa una matriz vacía
+    let size = 2_usize.pow(n);
+    let mut matrix = vec![vec![0_u32; size]; size];
 
-    // Función recursiva para construir la matriz de Bayer
     fn fill_bayer(matrix: &mut Vec<Vec<u32>>, x: usize, y: usize, size: usize, value: u32) {
         if size == 1 {
             matrix[x][y] = value;
@@ -44,10 +43,10 @@ fn generate_bayer_matrix(n: u32) -> Vec<Vec<f32>> {
         let half = size / 2;
         let factor = (size * size / 4) as u32;
 
-        fill_bayer(matrix, x, y, half, value); // Cuadrante superior izquierdo
-        fill_bayer(matrix, x, y + half, half, value + factor * 1); // Superior derecho
-        fill_bayer(matrix, x + half, y, half, value + factor * 2); // Inferior izquierdo
-        fill_bayer(matrix, x + half, y + half, half, value + factor * 3); // Inferior derecho
+        fill_bayer(matrix, x, y, half, value + factor * 0);
+        fill_bayer(matrix, x + half, y, half, value + factor * 3);
+        fill_bayer(matrix, x, y + half, half, value + factor * 2);
+        fill_bayer(matrix, x + half, y + half, half, value + factor * 1);
     }
 
     fill_bayer(&mut matrix, 0, 0, size, 0);
