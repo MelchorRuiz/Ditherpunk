@@ -21,6 +21,7 @@ pub struct DitherArgs {
 pub enum Mode {
     WhitePixelAlternation(OptsWhitePixelAlternation),
     Thresholding(OptsThresholding),
+    Pallet(OptsPallet),
 }
 
 #[derive(Debug, Clone, PartialEq, FromArgs)]
@@ -38,4 +39,13 @@ pub struct OptsThresholding {
     /// couleur foncee
     #[argh(option, long = "couleur-foncee")]
     pub dark: Option<String>,
+}
+
+#[derive(Debug, Clone, PartialEq, FromArgs)]
+#[argh(subcommand, name = "palette")]
+/// Rendu de l’image avec une palette contenant un nombre limité de couleurs
+pub struct OptsPallet {
+    /// le nombre de couleurs à utiliser, dans la liste [NOIR, BLANC, ROUGE, VERT, BLEU, JAUNE, CYAN, MAGENTA]
+    #[argh(option, long = "nombre-de-couleurs", short = 'n')]
+    pub n: usize,
 }
