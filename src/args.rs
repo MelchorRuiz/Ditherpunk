@@ -23,6 +23,7 @@ pub enum Mode {
     Thresholding(OptsThresholding),
     Pallet(OptsPallet),
     Dithering(OptsDithering),
+    OrderedDithering(OptsOrderedDithering),
 }
 
 #[derive(Debug, Clone, PartialEq, FromArgs)]
@@ -55,3 +56,12 @@ pub struct OptsPallet {
 #[argh(subcommand, name = "tramage")]
 /// Rendu de l’image avec un tre tramage aléatoire
 pub struct OptsDithering {}
+
+#[derive(Debug, Clone, PartialEq, FromArgs)]
+#[argh(subcommand, name = "tramage-ordonne")]
+/// Rendu de l’image avec un tramage ordonné en utilisant la matrice de Bayer
+pub struct OptsOrderedDithering {
+    /// l’ordre de la matrice de Bayer
+    #[argh(option, long = "ordre", short = 'n')]
+    pub n: u32,
+}
