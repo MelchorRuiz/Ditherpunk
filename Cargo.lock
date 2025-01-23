@@ -3,6 +3,16 @@
 version = 4
 
 [[package]]
+name = "Ditherpunk"
+version = "0.1.0"
+dependencies = [
+ "argh",
+ "css-color-parser",
+ "image",
+ "rand",
+]
+
+[[package]]
 name = "adler2"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -442,16 +452,6 @@ name = "weezl"
 version = "0.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "53a85b86a771b1c87058196170769dd264f66c0782acf1ae6cc51bfd64b39082"
-
-[[package]]
-name = "workspace"
-version = "0.1.0"
-dependencies = [
- "argh",
- "css-color-parser",
- "image",
- "rand",
-]
 
 [[package]]
 name = "zerocopy"
