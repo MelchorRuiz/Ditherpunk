@@ -26,7 +26,7 @@ Le programme s'exécute depuis la ligne de commande et accepte plusieurs modes d
 
 ```bash
 # Alternance de pixels blancs
-./target/release/Ditherpunk input.png white_pixel_alternation 
+./target/release/Ditherpunk input.png alternance-pixels-blancs
 # Seuil
 ./target/release/Ditherpunk input.png seuillage --couleur-claire white --couleur-foncee black
 # Palette
