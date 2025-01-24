@@ -52,3 +52,29 @@ pub fn apply_pallet(input: String, output: Option<String>, n: usize) -> Result<(
 
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_apply_pallet() {
+        let input = String::from("img/testing/1.jpg");
+        let expected = String::from("img/testing/4.jpg");
+        let output = String::from("img/testing/output-4.jpg");
+
+        let r = apply_pallet(input, Some(output.clone()), 8);
+        assert!(r.is_ok());
+
+        let img_expected = ImageReader::open(expected).unwrap().decode().unwrap();
+        let img_output = ImageReader::open(output.clone()).unwrap().decode().unwrap();
+        let img_expected_rgb = img_expected.to_rgb8();
+        let img_output_rgb = img_output.to_rgb8();
+
+        for (x, y, pixel) in img_expected_rgb.enumerate_pixels() {
+            assert_eq!(pixel, img_output_rgb.get_pixel(x, y));
+        }
+
+        std::fs::remove_file(output).unwrap();
+    }
+}

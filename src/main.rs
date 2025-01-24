@@ -28,7 +28,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             apply_pallet(args.input, args.output, opts.n)?;
         },
         Mode::Dithering(_) => {
-            apply_dithering(args.input, args.output)?;
+            let mut rng = rand::thread_rng();
+            apply_dithering(args.input, args.output, &mut rng)?;
         },
         Mode::OrderedDithering(opts) => {
             apply_ordered_dithering(args.input, args.output, opts.n)?;
