@@ -26,17 +26,17 @@ Le programme s'exécute depuis la ligne de commande et accepte plusieurs modes d
 
 ```bash
 # Alternance de pixels blancs
-./target/release/Ditherpunk input.png alternance-pixels-blancs
+./target/release/Ditherpunk ./img/gato.png alternance-pixels-blancs
 # Seuil
-./target/release/Ditherpunk input.png seuillage --couleur-claire white --couleur-foncee black
+./target/release/Ditherpunk ./img/gato.png seuillage --couleur-claire white --couleur-foncee black
 # Palette
-./target/release/Ditherpunk input.png palette -n 8
+./target/release/Ditherpunk ./img/gato.png palette -n 8
 # Dithering
-./target/release/Ditherpunk input.png tramage 
+./target/release/Ditherpunk ./img/gato.png tramage 
 # Dithering ordonné
-./target/release/Ditherpunk input.png tramage-ordonne -n 1
+./target/release/Ditherpunk ./img/gato.png tramage-ordonne -n 1
 # Diffusion d'erreurs
-./target/release/Ditherpunk input.png diffusion-erreur --algorithme floyd_steinberg
+./target/release/Ditherpunk ./img/gato.png diffusion-erreur --algorithme floyd_steinberg
 ```
 
 ### Exemples de Résultats
