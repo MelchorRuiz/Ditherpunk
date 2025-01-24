@@ -3,16 +3,6 @@
 version = 4
 
 [[package]]
-name = "Ditherpunk"
-version = "0.1.0"
-dependencies = [
- "argh",
- "css-color-parser",
- "image",
- "rand",
-]
-
-[[package]]
 name = "adler2"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -139,6 +129,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9ccb6ce7ef97e6dc6e575e51b596c9889a5cc88a307b5ef177d215c61fd7581d"
 dependencies = [
  "lazy_static",
+]
+
+[[package]]
+name = "ditherpunk"
+version = "0.1.0"
+dependencies = [
+ "argh",
+ "css-color-parser",
+ "image",
+ "rand",
 ]
 
 [[package]]
